@@ -1,5 +1,7 @@
 # 💫 About Me:
-As a dedicated practitioner in the field of Artificial Intelligence and Machine Learning, I have a deep passion for leveraging cutting-edge technology to drive innovation and solve complex problems.<br>I enjoy working with Python, as I find it simple yet powerful in getting things done. <br>Currently, I'm expanding my skills in UX/UI and looking for opportunities to collaborate on AI projects. <br>Let's connect and create something amazing together!<br><br>I am Free-Lance
+- AI enthusiast and Python aficionado. UX/UI explorer. 
+- Let's innovate together and create something amazing! Freelance and available for new projects.
+
 
 
 ## 🌐 Socials:
