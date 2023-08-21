@@ -1,6 +1,6 @@
 # 💫 About Me:
+My name is Jinef. I am an experienced developer skilled in Python, Java, FrontEnd Development, Machine learning, Javascript and its frameworks. My activities are much beyond my stream of education. ⚡ I am involved in a lot of organizational works in college related to clubs, hackathons, fests and workshops.
 - AI enthusiast and Python aficionado. UX/UI explorer. 
-- Let's innovate together and create something amazing! Freelance and available for new projects.
 
 
 
