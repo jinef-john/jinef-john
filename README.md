@@ -4,7 +4,7 @@ Hi 👋 My name is Jinef
 AI/ML Consultant, Data Scientist and Full Stack Dev
 -----------------------------
 
-I am an experienced developer skilled in Python, Java, FrontEnd Development, Machine learning, Javascript and its frameworks. My activities are much beyond my stream of education. ⚡ I am involved in a lot of organizational works in college related to clubs, hackathons, fests and workshops.
+I am an experienced developer skilled in Python, Java, FrontEnd Development, Machine learning, Javascript and its frameworks. My activities are much beyond my stream of education. ⚡ I am involved in a lot of organizational works from college related activities to clubs, hackathons, fests and workshops.
 
 * 🖥️  See my portfolio at [Jinef](http://portifolio.com)
 * ✉️  You can contact me at [jinefjohn@gmail.com](mailto:jinefjohn@gmail.com)
