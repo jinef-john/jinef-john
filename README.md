@@ -39,7 +39,7 @@ I am an experienced developer skilled in Python, Java, FrontEnd Development, Mac
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
-  ## 💰 Well, if you are generous enough
-  [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=WV2SZELDENZ84) 
+  <!--## 💰 Well, if you are generous enough
+  <!--[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=WV2SZELDENZ84) 
 
   
