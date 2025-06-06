@@ -19,7 +19,7 @@ Me? Just a  **passionate** developer. I love coding, learning, and black coffee.
 - 👯 I'm looking to collaborate on **innovative AI/ML projects**
 - 💬 Ask me about **Py, ML, Js**
 - 📫 How to reach me: **[jinefjohn@gmail.com](mailto:jinefjohn@gmail.com)**
-- 🌐 Portfolio: **[Jinef](http://portifolio.com)**
+- 🌐 Portfolio: **[Jinef](https://jinef.netlify.app/)**
 - ⚡ Fun fact: **I am a free spirit. I dance with the wind.**
 
 ---
