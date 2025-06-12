@@ -2,7 +2,6 @@
 
 # Hi 👋, I'm Jinef John
 
-### 🚀 AI/ML Consultant | Data Scientist | Full Stack Developer
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=435&lines=AI%2FML+Consultant;Data+Scientist;Full+Stack+Developer;Python+%7C+Java+%7C+JavaScript;Always+learning+new+things!" alt="Typing SVG" />
 
