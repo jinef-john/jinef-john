@@ -1,19 +1,34 @@
 <div align="center">
 
-![OpBento](https://firebasestorage.googleapis.com/v0/b/smartkaksha-fe32c.appspot.com/o/opbento%2FEcolash2666d.png?alt=media)
-  
+# Hi 👋, I'm Jinef
 
-### **🎓 CSE Undergraduate @ IIT Kharagpur | Exploring AI, Software, & Systems**
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=435&lines=AI%2FML+Consultant;Data+Scientist;Full+Stack+Developer;Python+%7C+Java+%7C+JavaScript;Always+learning+new+things!" alt="Typing SVG" />
+
+</div>
+
+<div align="center">
+
+![OpBento](https://firebasestorage.googleapis.com/v0/b/smartkaksha-fe32c.appspot.com/o/opbento%2Fjinef-john7708f.png?alt=media)
+
+### \*\* \*\*
+
 </div>
 
 ---
-## ✨ About Me  
 
-Currently pursuing my **B.Tech in CSE** at [IIT Kharagpur](https://www.iitkgp.ac.in/), I am a developer who loves **breaking code just to rebuild it better**. Driven by curiosity, I am on a mission to **solve real-world problems** through impactful projects and continuous learning.          
+## 🌟 About Me
 
+Me? Just a **passionate** developer. I love coding, learning, and black coffee.
+
+- 🔭 I'm currently working on **[Nyumbani](https://main.d1fdqtm1sq1vr1.amplifyapp.com/)**
+- 🌱 I'm learning **React** and exploring cutting-edge ML techniques
+- 👯 I'm looking to collaborate on **innovative AI/ML projects**
+- 💬 Ask me about **Py, ML, Js**
+- 📫 How to reach me: **[jinefjohn@gmail.com](mailto:jinefjohn@gmail.com)**
+- 🌐 Portfolio: **[Jinef](https://jinef.netlify.app/)**
+- ⚡ Fun fact: **I am a free spirit. I dance with the wind.**
 
 <h3 style="font-family: sans-serif; text-decoration: none; cursor: none;">⚙ <span style="color: #ADD8E6">Tech Stack:</span></h3>
-
 
 <div align="center">
 
@@ -61,22 +76,22 @@ Currently pursuing my **B.Tech in CSE** at [IIT Kharagpur](https://www.iitkgp.ac
 
 </div>
 
-
 <h3 style="font-family: sans-serif; text-decoration: none; cursor: none;"> 🌐 <span style="color: #ADD8E6">Socials:</span></h3>
-<p style="color: #fff; font-family: sans-serif;">
-<a href="https://in.linkedin.com/in/tuhin-mondal-52573b268">
+<!-- <p style="color: #fff; font-family: sans-serif;"> -->
+<!-- <a href="https://in.linkedin.com/in/tuhin-mondal-52573b268">
   <img src="Images/linkedin.png" width="40" />
 </a>&nbsp;
 <a href="https://www.instagram.com/tuhin018/">
   <img src="Images/instagram.png" width="40" />
-</a>&nbsp;
-<a href="https://www.twitter.com/Tuhin_011">
+</a>&nbsp; -->
+<a href="https://www.twitter.com/jinefjohn">
   <img src="Images/x.png" width="45" height="48" />
 </a>
 
+<!-- Images/bottom_header.svg -->
 
-![Tuhin Mondal](https://raw.githubusercontent.com/Ecolash/Ecolash/main/Images/bottom_header.svg)
-<a href="https://u8views.com/github/Ecolash"><img src="https://u8views.com/api/v1/github/profiles/137093087/views/day-week-month-total-count.svg"></a>
+![Jinef John](Images/bottom_header.svg)
+<a href="https://u8views.com/github/jinef-john"><img src="https://u8views.com/api/v1/github/profiles/137093087/views/day-week-month-total-count.svg"></a>
 <br/>
 
 ---
