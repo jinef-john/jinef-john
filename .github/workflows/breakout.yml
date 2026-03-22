@@ -29,8 +29,8 @@ jobs:
 
       - name: Configure git
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "jinef-john"
+          git config user.email "80605992+jinef-john@users.noreply.github.com"
 
       - name: Commit and force-push SVGs to target branch
         run: |
