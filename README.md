@@ -94,4 +94,10 @@ Me? Just a **passionate** developer. I love coding, learning, and black coffee.
 <a href="https://u8views.com/github/jinef-john"><img src="https://u8views.com/api/v1/github/profiles/137093087/views/day-week-month-total-count.svg"></a>
 <br/>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jinef-john/jinef-john/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jinef-john/jinef-john/output/github-contribution-grid-snake.svg" />
+  <img alt="github-snake" src="https://raw.githubusercontent.com/jinef-john/jinef-john/output/github-contribution-grid-snake.svg" />
+</picture>
+
 ---
