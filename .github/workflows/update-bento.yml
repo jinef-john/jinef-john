@@ -1,22 +1,39 @@
-# name: Daily OP-Bento image Update
+name: Daily OP-Bento Image Update
 
-# on:
-#   schedule:
-#     - cron: "0 * * * *"
-#   workflow_dispatch:
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs every day at midnight UTC
+  workflow_dispatch: # Allow manual trigger
 
-# jobs:
-#   update-readme:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout Repository
-#         uses: actions/checkout@v4
+permissions:
+  contents: write
 
-#       - name: Setup Bun & run
-#         uses: oven-sh/setup-bun@v1
-#         with:
-#           bun-version: latest
+jobs:
+  update-bento:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-#       - name: Update Bento
-#         run: |
-#           bun getNewBento.ts
+      - name: Fetch and download bento image
+        run: |
+          IMAGE_URL=$(curl -s "https://opbento.vercel.app/api/bento?n=Jinef&i=https%3A%2F%2Fnews.mit.edu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fnews_article__image_gallery%2Fpublic%2Fimages%2F202012%2FMIT-Coding-Brain-01-press_0.jpg%3Fitok%3DJKoUflf8&g=jinef-john&x=jinefjohn&l=&p=https%3A%2F%2Fjinef.netlify.app%2F&z=7708f" | jq -r '.url')
+          echo "Downloading from: $IMAGE_URL"
+          curl -sL -o /tmp/opbento-new.png "$IMAGE_URL"
+
+          # Only replace if the download is a valid PNG
+          if file /tmp/opbento-new.png | grep -q "PNG image"; then
+            echo "Valid PNG received, updating image."
+            cp /tmp/opbento-new.png Images/opbento.png
+          else
+            echo "Invalid image received (likely Firebase error). Skipping update."
+            exit 0
+          fi
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "jinef-john"
+          git config user.email "80605992+jinef-john@users.noreply.github.com"
+          git add Images/opbento.png
+          git diff --staged --quiet || git commit -m "chore: update bento image"
+          git push
