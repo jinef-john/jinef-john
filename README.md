@@ -8,7 +8,7 @@
 
 <div align="center">
 
-![OpBento](https://firebasestorage.googleapis.com/v0/b/smartkaksha-fe32c.appspot.com/o/opbento%2Fjinef-john7708f.png?alt=media)
+![OpBento](Images/opbento.png)
 
 ### \*\* Codex \*\*
 
