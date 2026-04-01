@@ -15,56 +15,37 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Fetch and download bento image
+      - name: Fetch bento image
         run: |
-          BENTO_URL="https://opbento.vercel.app/api/bento?n=Jinef&i=https%3A%2F%2Fnews.mit.edu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fnews_article__image_gallery%2Fpublic%2Fimages%2F202012%2FMIT-Coding-Brain-01-press_0.jpg%3Fitok%3DJKoUflf8&g=jinef-john&x=jinefjohn&l=&p=https%3A%2F%2Fjinef.netlify.app%2F&z=7708f"
-
-          # Download API response to file, following any redirects
-          curl -sL --max-time 60 -o /tmp/bento_response.bin "$BENTO_URL"
-          CURL_EXIT=$?
-          if [ $CURL_EXIT -ne 0 ]; then
-            echo "curl failed with exit code $CURL_EXIT. Skipping update."
-            exit 0
-          fi
-
-          # Check if the API returned a PNG image directly (new API behaviour)
-          if file /tmp/bento_response.bin | grep -q "PNG image"; then
-            echo "API returned PNG directly."
-            cp /tmp/bento_response.bin /tmp/opbento-new.png
+          BENTO_URL="https://opbento.vercel.app/api/bento?n=Jinef&i=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F137093087&g=jinef-john&x=jinefjohn&l=&p=https%3A%2F%2Fjinef.netlify.app%2F&z=7708f"
+          curl -sfL --max-time 60 -o /tmp/bento.bin "$BENTO_URL" || true
+          if file /tmp/bento.bin 2>/dev/null | grep -q "PNG image"; then
+            echo "Got PNG directly."
+            cp /tmp/bento.bin Images/opbento.png
           else
-            # Fall back to old behaviour: parse JSON and download the URL
-            IMAGE_URL=$(python3 -c "
-import sys, json
-try:
-    d = json.load(open('/tmp/bento_response.bin'))
-    print(d.get('url') or '')
-except Exception as e:
-    print('')
-" 2>/dev/null)
-            if [ -z "$IMAGE_URL" ] || [ "$IMAGE_URL" = "None" ]; then
-              echo "Could not extract image URL. API response preview:"
-              head -c 300 /tmp/bento_response.bin
-              echo ""
-              echo "Skipping update."
-              exit 0
+            IMAGE_URL=$(python3 -c "import json,sys;d=json.load(sys.stdin);print(d.get('url',''))" < /tmp/bento.bin 2>/dev/null || true)
+            if [ -n "$IMAGE_URL" ]; then
+              curl -sfL --max-time 60 -o /tmp/bento_img.bin "$IMAGE_URL" || true
+              if file /tmp/bento_img.bin 2>/dev/null | grep -q "PNG image"; then
+                echo "Got PNG from URL."
+                cp /tmp/bento_img.bin Images/opbento.png
+              fi
+            else
+              echo "Bento API unavailable: $(head -c 80 /tmp/bento.bin 2>/dev/null)"
             fi
-            echo "Downloading image from: $IMAGE_URL"
-            curl -sL --max-time 60 -o /tmp/opbento-new.png "$IMAGE_URL"
           fi
 
-          # Only replace if the downloaded file is a valid PNG
-          if file /tmp/opbento-new.png | grep -q "PNG image"; then
-            echo "Valid PNG received, updating image."
-            cp /tmp/opbento-new.png Images/opbento.png
-          else
-            echo "Invalid image received. Skipping update."
-            exit 0
-          fi
+      - name: Update daily stats
+        run: |
+          STATS=$(curl -sfL --max-time 15 "https://opbento.vercel.app/api/stats?username=jinef-john" || echo '{}')
+          STREAK=$(curl -sfL --max-time 15 "https://opbento.vercel.app/api/streak?username=jinef-john" || echo '{}')
+          printf '{"updated":"%s","stats":%s,"streak":%s}\n' "$(date +%Y-%m-%d)" "$STATS" "$STREAK" > stats.json
+          echo "Stats updated for $(date +%Y-%m-%d)"
 
-      - name: Commit and push if changed
+      - name: Commit and push
         run: |
           git config user.name "jinef-john"
           git config user.email "80605992+jinef-john@users.noreply.github.com"
-          git add Images/opbento.png
-          git diff --staged --quiet || git commit -m "chore: update bento image"
+          git add Images/opbento.png stats.json
+          git diff --staged --quiet || git commit -m "chore: daily update $(date +%Y-%m-%d)"
           git push
