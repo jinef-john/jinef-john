@@ -17,16 +17,47 @@ jobs:
 
       - name: Fetch and download bento image
         run: |
-          IMAGE_URL=$(curl -s "https://opbento.vercel.app/api/bento?n=Jinef&i=https%3A%2F%2Fnews.mit.edu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fnews_article__image_gallery%2Fpublic%2Fimages%2F202012%2FMIT-Coding-Brain-01-press_0.jpg%3Fitok%3DJKoUflf8&g=jinef-john&x=jinefjohn&l=&p=https%3A%2F%2Fjinef.netlify.app%2F&z=7708f" | jq -r '.url')
-          echo "Downloading from: $IMAGE_URL"
-          curl -sL -o /tmp/opbento-new.png "$IMAGE_URL"
+          BENTO_URL="https://opbento.vercel.app/api/bento?n=Jinef&i=https%3A%2F%2Fnews.mit.edu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fnews_article__image_gallery%2Fpublic%2Fimages%2F202012%2FMIT-Coding-Brain-01-press_0.jpg%3Fitok%3DJKoUflf8&g=jinef-john&x=jinefjohn&l=&p=https%3A%2F%2Fjinef.netlify.app%2F&z=7708f"
 
-          # Only replace if the download is a valid PNG
+          # Download API response to file, following any redirects
+          curl -sL --max-time 60 -o /tmp/bento_response.bin "$BENTO_URL"
+          CURL_EXIT=$?
+          if [ $CURL_EXIT -ne 0 ]; then
+            echo "curl failed with exit code $CURL_EXIT. Skipping update."
+            exit 0
+          fi
+
+          # Check if the API returned a PNG image directly (new API behaviour)
+          if file /tmp/bento_response.bin | grep -q "PNG image"; then
+            echo "API returned PNG directly."
+            cp /tmp/bento_response.bin /tmp/opbento-new.png
+          else
+            # Fall back to old behaviour: parse JSON and download the URL
+            IMAGE_URL=$(python3 -c "
+import sys, json
+try:
+    d = json.load(open('/tmp/bento_response.bin'))
+    print(d.get('url') or '')
+except Exception as e:
+    print('')
+" 2>/dev/null)
+            if [ -z "$IMAGE_URL" ] || [ "$IMAGE_URL" = "None" ]; then
+              echo "Could not extract image URL. API response preview:"
+              head -c 300 /tmp/bento_response.bin
+              echo ""
+              echo "Skipping update."
+              exit 0
+            fi
+            echo "Downloading image from: $IMAGE_URL"
+            curl -sL --max-time 60 -o /tmp/opbento-new.png "$IMAGE_URL"
+          fi
+
+          # Only replace if the downloaded file is a valid PNG
           if file /tmp/opbento-new.png | grep -q "PNG image"; then
             echo "Valid PNG received, updating image."
             cp /tmp/opbento-new.png Images/opbento.png
           else
-            echo "Invalid image received (likely Firebase error). Skipping update."
+            echo "Invalid image received. Skipping update."
             exit 0
           fi
 
