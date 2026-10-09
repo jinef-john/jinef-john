@@ -20,7 +20,6 @@
 
 Me? Just a **passionate** developer. I love coding, learning, and black coffee.
 
-- 🔭 I'm currently working on **[Nyumbani](https://main.d1fdqtm1sq1vr1.amplifyapp.com/)**
 - 🌱 I'm learning **React** and exploring cutting-edge ML techniques
 - 👯 I'm looking to collaborate on **innovative AI/ML projects**
 - 💬 Ask me about **Py, ML, Js**
